@@ -18,8 +18,5 @@ def get_channel_playlist(CANNEL_HANDLE):
          raise e
     
 if __name__ =="__main__":
-    print("this will run in this only")
-    get_channel_playlist("MrBeast")
-else:
-    print("running form somewhere else")
+    print(get_channel_playlist("MrBeast"))
         
