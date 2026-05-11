@@ -1,10 +1,15 @@
 import requests
 import json
+import os
+from dotenv import load_dotenv
 
-API_KEY = 'AIzaSyDF6eYlz9yfpFnYRsux6McFKwwI3HWKNfc'
+load_dotenv(dotenv_path="./.env")
 
+API_KEY = os.getenv("API_KEY")
 
-def get_channel_playlist(CANNEL_HANDLE):
+CANNEL_HANDLE = "Tseries"
+
+def get_channel_playlist():
     try:
          url = f"https://youtube.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername={CANNEL_HANDLE}&key={API_KEY}"
          response = requests.get(url)
@@ -18,5 +23,5 @@ def get_channel_playlist(CANNEL_HANDLE):
          raise e
     
 if __name__ =="__main__":
-    print(get_channel_playlist("MrBeast"))
-        
+    print(get_channel_playlist())
+
